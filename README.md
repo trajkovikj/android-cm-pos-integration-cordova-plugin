@@ -19,6 +19,16 @@ To interact with cordova and its plugins you will first need to wait on `devicer
 ```
 document.addEventListener("deviceready", onDeviceReady, false);
 
+function successCallback(response) {
+    // response is a JSON object that has all the data from a successfull transaction
+  console.log(JSON.parse(response));
+}
+
+function errorCallback(response) {
+    // response is a string that is returned in case App Crashes or the transaction is cancelled in some way
+    console.log(response);
+}
+
 function onDeviceReady() {
         var myData = {
             transactionType: "PURCHASE",
@@ -43,7 +53,34 @@ Below are example of functions provided by the plugin and the CM SDK. To read mo
 
 This function is used to perform a transaction on CM POS Payments app.
 
-**1. Example of sending a new payment transaction.**
+`window.cmPosIntegration.doTransaction(data, successCallback, errorCallback);`
+
+`successCallback(response: String)` - callback function that receives one parameter of type string
+
+`errorCallback(response: String)` - callback function that receives one parameter of type string
+
+`data` - JSON string
+
+```
+{
+    transactionType: "REFUND",
+    amount: 11.11,
+    currency: "EUR",
+    orderReference: "1234-5678",
+    refundStan: "065987", // Can be found on the receipt
+    refundDate: "21/01/22", // Can be found on the receipt
+}
+```
+
+| Property | Description |
+| transactionType | PURCHASE / REFUND / |
+| amount | decimal number |
+| currency | 3 letter ISO currency e.g. EUR / USD |
+| orderReference | string, generated from yourside, so you can reference the order |
+| refundStan | (optional) Only for refund transactions. This data must be taken from the previous transaction (transaction that you are refunding) |
+| refundDate | (optional) Only for refund transactions. Date of the transaction that is beeing refunded. This data must be taken from the previous transaction (transaction that you are refunding) |
+
+**1. Example of sending a new payment transaction request.**
 
 ```
 /* Sending a payment transaction */
@@ -64,12 +101,23 @@ functino purchase() {
             errorCallback
         );
 }
+
+function successCallback(response) {
+    // response is a JSON object that has all the data from a successfull transaction
+  console.log(JSON.parse(response));
+}
+
+function errorCallback(response) {
+    // response is a string that is returned in case App Crashes or the transaction is cancelled in some way
+    console.log(response);
+}
+
 ```
 
-**2. Example of sending a refund transaction.**
+**2. Example of sending a refund transaction request.**
 
 ```
-/* Sending a payment transaction */
+/* Start refund transaction */
 
 functino refund() {
         var myData = {
@@ -143,4 +191,5 @@ This function is used to finish a previously pre authorized transaction.
 ## 3. References
 
 [cm.com official website](https://cm.com)
+
 [CM App 2 App integration developers documentation](https://developers.cm.com/payments-platform/v1.0.2/docs/app-2-app-integration)
