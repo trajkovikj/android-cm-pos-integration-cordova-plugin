@@ -55,11 +55,11 @@ This function is used to perform a transaction on CM POS Payments app.
 
 `window.cmPosIntegration.doTransaction(data, successCallback, errorCallback);`
 
-`successCallback(response: String)` - callback function that receives one parameter of type string
+**successCallback(response: String)** - callback function that receives one parameter of type string
 
-`errorCallback(response: String)` - callback function that receives one parameter of type string
+**errorCallback(response: String)** - callback function that receives one parameter of type string
 
-`data` - JSON string
+**data** - JSON string
 
 ```
 {
@@ -72,13 +72,14 @@ This function is used to perform a transaction on CM POS Payments app.
 }
 ```
 
-| Property | Description |
-| transactionType | PURCHASE / REFUND / |
-| amount | decimal number |
-| currency | 3 letter ISO currency e.g. EUR / USD |
-| orderReference | string, generated from yourside, so you can reference the order |
-| refundStan | (optional) Only for refund transactions. This data must be taken from the previous transaction (transaction that you are refunding) |
-| refundDate | (optional) Only for refund transactions. Date of the transaction that is beeing refunded. This data must be taken from the previous transaction (transaction that you are refunding) |
+| Property        | Description                                                                                                                                                                          |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| transactionType | PURCHASE / REFUND / PRE_AUTH                                                                                                                                                         |
+| amount          | decimal number                                                                                                                                                                       |
+| currency        | 3 letter ISO currency e.g. EUR / USD                                                                                                                                                 |
+| orderReference  | string, generated from yourside, so you can reference the order                                                                                                                      |
+| refundStan      | (optional) Only for refund transactions. This data must be taken from the previous transaction (transaction that you are refunding)                                                  |
+| refundDate      | (optional) Only for refund transactions. Date of the transaction that is beeing refunded. This data must be taken from the previous transaction (transaction that you are refunding) |
 
 **1. Example of sending a new payment transaction request.**
 
