@@ -2,7 +2,7 @@
 
 This is cordova plugin for android SunMi devices with integrated card reader. It uses cm.com SDK for App 2 App communication with their terminal application.
 
-### 1. Installation
+## 1. Installation
 
 Go to your cordova project and execute the following command:
 
@@ -12,7 +12,7 @@ To install specific version for specific tag you can use the following command:
 
 `cordova plugin add https://github.com/trajkovikj/android-cm-pos-integration-cordova-plugin.git#v1.0.0`
 
-### 2. Usage
+## 2. Usage
 
 To interact with cordova and its plugins you will first need to wait on `deviceready` event to fire. After `deviceready` event fires, you can use the `cmPosIntegration` plugin from the window object. There is a simple example code below that presents the most simple usage of the plugin.
 
@@ -140,7 +140,7 @@ This function is used to request information about the merchant shop in which th
 
 This function is used to finish a previously pre authorized transaction.
 
-## References
+## 3. References
 
 [cm.com official website](https://cm.com)
 [CM App 2 App integration developers documentation](https://developers.cm.com/payments-platform/v1.0.2/docs/app-2-app-integration)
