@@ -62,7 +62,7 @@ This function is used to perform a transaction on CM POS Payments app.
 **data** - JSON string
 
 ```
-{
+var dataObject = {
     transactionType: "REFUND",
     amount: 11.11,
     currency: "EUR",
@@ -70,6 +70,8 @@ This function is used to perform a transaction on CM POS Payments app.
     refundStan: "065987", // Can be found on the receipt
     refundDate: "21/01/22", // Can be found on the receipt
 }
+
+var data = JSON.stringify(dataObject);
 ```
 
 | Property        | Description                                                                                                                                                                          |
