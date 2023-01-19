@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="android-cm-pos-integration-cordova-plugin"
+        version="0.1.0">
+
+  <name>CmPosIntegration</name>
+
+  <engines>
+    <engine name="cordova" version=">=10.0.0"/>
+    <engine name="cordova-android" version=">=9.0.0"/>
+  </engines>
+
+  <asset src="www/cm-pos-integration.js" target="js/cm-pos-integration.js"/>
+
+  <js-module src="www/cm-pos-integration.js" name="cmPosIntegration">
+    <clobbers target="cmPosIntegration" />
+  </js-module>
+
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="CmPosIntegrationPluginImpl">
+        <param name="android-package" value="io.thinker.cmposintegration.CmPosIntegrationPluginImpl"/>
+      </feature>
+      <preference name="android-minSdkVersion" value="25" />
+      <preference name="GradlePluginKotlinEnabled" value="true" />
+      <preference name="GradlePluginKotlinCodeStyle" value="official" />
+      <preference name="GradlePluginKotlinVersion" value="1.6.0" />
+    </config-file>
+
+    <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
+        <application android:extractNativeLibs="true" />
+    </edit-config>
+
+    <lib-file src="libs/androidposintegration-1.1.2-debug.aar" />
+    
+    <!-- <source-file src="libs/androidposintegration-1.1.2-debug.aar" target-dir="libs"/> -->
+    
+    <source-file src="src/android/models/DoTransactionMessage.kt" target-dir="java/io/thinker/cmposintegration/models"/>
+    <source-file src="src/android/models/FinishPreAuthMessage.kt" target-dir="java/io/thinker/cmposintegration/models"/>
+    <source-file src="src/android/models/GetLastReceiptMessage.kt" target-dir="java/io/thinker/cmposintegration/models"/>
+    <source-file src="src/android/models/GetTerminalDayTotalsMessage.kt" target-dir="java/io/thinker/cmposintegration/models"/>
+    <source-file src="src/android/models/TransactionStatusesMessage.kt" target-dir="java/io/thinker/cmposintegration/models"/>
+    
+    <source-file src="src/android/AndroidPosIntegrationAdapter.kt" target-dir="java/io/thinker/cmposintegration"/>
+    <source-file src="src/android/CmPosIntegrationPluginImpl.kt" target-dir="java/io/thinker/cmposintegration"/>
+   
+    <framework src="src/android/cmposintegration.gradle" custom="true" type="gradleReference" />
+   
+  </platform>
+
+</plugin>

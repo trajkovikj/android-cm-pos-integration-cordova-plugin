@@ -1,0 +1,34 @@
+repositories {    
+    google()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+
+    // Use for binary library
+    // flatDir {
+    //     dirs 'libs'
+    // }
+}
+
+dependencies {
+    // CM POS Binary library
+    // compile(name: 'androidposintegration-1.1.2-debug', ext: 'aar')
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    // CM POS Payments Android POS Integration library
+    implementation 'com.github.cmdotcom.android-pos-integration-sdk-kotlin:androidposintegrationsdk-debug:1.1.2'
+    // implementation 'com.github.cmdotcom.android-pos-integration-sdk-kotlin:androidposintegrationsdk:1.1.2'
+}
+
+android {
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+
+    signingConfigs {
+        release {
+            v1SigningEnabled = true
+            v2SigningEnabled = true
+        }
+    }
+}

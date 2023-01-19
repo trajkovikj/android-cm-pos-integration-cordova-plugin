@@ -1,0 +1,27 @@
+{
+  "name": "ecash-cm-pos-integration-cordova-plugin",
+  "version": "1.0.0",
+  "description": "Cordova plugin for integration with CM POS payments terminal (app to app integration) for Android SunMi devices with integrated card reader",
+  "cordova": {
+    "id": "android-cm-pos-integration-cordova-plugin",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trajkovikj/android-cm-pos-integration-cordova-plugin.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "CM POS",
+    "SunMi CM integration",
+    "cordova-android"
+  ],
+  "author": "Stefan Trajkovikj",
+  "license": "ISC"
+}
