@@ -16,7 +16,7 @@ import java.math.BigDecimal
 import java.text.SimpleDateFormat;  
 import java.util.*
 
-class AndroidPosIntegrationAdapter {
+public class AndroidPosIntegrationAdapter {
 
     fun doTransaction(
         transactionType: TransactionType,
@@ -55,9 +55,9 @@ class AndroidPosIntegrationAdapter {
             orderReference
         )
 
-        if(refundStan) data.refundStan = refundStan // Can be found on the receipt
+        if(refundStan != null && refundStan.length > 0) data.refundStan = refundStan // Can be found on the receipt
 
-        if(refundDate) {
+        if(refundDate != null && refundDate.length > 0) {
             val dateFormat = SimpleDateFormat("dd/MM/yy")
             data.refundDate = dateFormat.parse(refundDate) // Can be found on the receipt
         }

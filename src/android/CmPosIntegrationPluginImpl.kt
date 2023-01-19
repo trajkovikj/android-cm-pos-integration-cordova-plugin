@@ -1,20 +1,13 @@
-package io.thinker.cmposintegration;
+package io.thinker.cmposintegration
 
 import android.content.Context
-import android.util.Log
 import org.apache.cordova.CordovaPlugin
 import org.apache.cordova.CallbackContext
 import org.json.JSONArray
-import org.json.JSONException
-import org.json.JSONObject
 
-import com.cm.androidposintegration.beans.TransactionData
 import com.cm.androidposintegration.enums.PreAuthFinishType
 import com.cm.androidposintegration.enums.TransactionType
 import com.cm.androidposintegration.initializer.AndroidPosIntegration
-import com.cm.androidposintegration.service.callback.TransactionCallback
-import com.cm.androidposintegration.service.callback.beans.ErrorCode
-import com.cm.androidposintegration.service.callback.beans.TransactionResultData
 import com.google.gson.Gson
 import io.thinker.cmposintegration.models.*
 import org.apache.cordova.CordovaInterface
@@ -96,6 +89,8 @@ class CmPosIntegrationPluginImpl : CordovaPlugin() {
                 amount,
                 currency,
                 request.orderReference,
+                request.refundStan,
+                request.refundDate,
                 callbackContext
             )
         } catch (e: java.lang.Exception) {
