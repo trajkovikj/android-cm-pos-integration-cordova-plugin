@@ -83,6 +83,31 @@ var data = JSON.stringify(dataObject);
 | refundStan      | (optional) Only for refund transactions. This data must be taken from the previous transaction (transaction that you are refunding)                                                  |
 | refundDate      | (optional) Only for refund transactions. Date of the transaction that is beeing refunded. This data must be taken from the previous transaction (transaction that you are refunding) |
 
+**Error responses**
+
+| Error code                            | Description                                                                                   |
+| ------------------------------------- | --------------------------------------------------------------------------------------------- |
+| NO_ERROR                              | (0, "No error")                                                                               |
+| UNKNOWN_ERROR                         | (-1, "Unknown error")                                                                         |
+| AMOUNT_INVALID                        | (-2, "Amount used was invalid")                                                               |
+| NO_INTERNET                           | (-12, "Device is not connected to the network")                                               |
+| PRINTER_INIT_FAIL                     | (-17, "Printer initialization failed")                                                        |
+| POS_NOT_CONFIGURED                    | (-18, "Device is not configured in gateway")                                                  |
+| AUTO_TIMEZONE_NOT_ENABLED             | (-23, "Autotimezone is not enabled on device")                                                |
+| BAD_TIMEZONE                          | (-24, "Timezone on the device is not correct")                                                |
+| HOST_NOT_CONNECTED                    | (-25, "Cannot connect with the gateway")                                                      |
+| MERCHANT_ORDER_REF_NOT_PRESENT        | (-29, "Order reference not present in request data")                                          |
+| TIMEOUT                               | (-30, "Timeout reaching the gateway")                                                         |
+| REPEATED_OPERATION                    | (-31, "Transaction already in progress")                                                      |
+| MERCHANT_ORDER_REF_TOO_LONG           | (-32, "Order ref exceeds allowed length")                                                     |
+| AMOUNT_LIMIT_EXCEEDED                 | (-33, "Transaction exceeds allowed limit")                                                    |
+| INTERNAL_PROCESSING_ERROR             | (-34, "Internal processing error during transaction flow. Transaction couldn't be processed") |
+| INVALID_ORIGINAL_DATA                 | (-35, "Data related with previous transaction is invalid")                                    |
+| LOW_BATTERY_LEVEL                     | (-36, "Battery level is too low to start a transaction")                                      |
+| WRONG_EMV_AUTHORIZATION_DATE_AND_TIME | (-37, "Wrong date and time in authorization request. Please reboot your device.")             |
+| TRANSACTION_STATUS_ERROR              | (-50, "Status information not received")                                                      |
+| INFO_REQUEST_FAILED                   | (-51, "Info Request towards the gateway has failed")                                          |
+
 **1. Example of sending a new payment transaction request.**
 
 ```
