@@ -15,8 +15,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     // CM POS Payments Android POS Integration library
-    implementation 'com.github.cmdotcom.android-pos-integration-sdk-kotlin:androidposintegrationsdk-debug:1.1.2'
-    // implementation 'com.github.cmdotcom.android-pos-integration-sdk-kotlin:androidposintegrationsdk:1.1.2'
+    // implementation 'com.github.cmdotcom.android-pos-integration-sdk-kotlin:androidposintegrationsdk-debug:1.1.2'
+    implementation 'com.github.cmdotcom.android-pos-integration-sdk-kotlin:androidposintegrationsdk:1.1.2'
 }
 
 android {
@@ -27,8 +27,8 @@ android {
 
     signingConfigs {
         release {
-            v1SigningEnabled = true
-            v2SigningEnabled = true
+            v1SigningEnabled true
+            v2SigningEnabled true
         }
     }
 }

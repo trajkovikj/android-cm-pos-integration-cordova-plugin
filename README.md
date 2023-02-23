@@ -12,6 +12,27 @@ To install specific version for specific tag you can use the following command:
 
 `cordova plugin add https://github.com/trajkovikj/android-cm-pos-integration-cordova-plugin.git#v1.0.0`
 
+**NOTE:** You need to add the following lines (v1SigningEnabled and v2SigningEnabled) in `src-cordova/build.json` file, to be able to upload the apk to SunMI market.
+
+```
+{
+    "android": {
+        "debug": {
+            "paskageType": "apk",
+            ...
+            "v1SigningEnabled": true,
+            "v2SigningEnabled": true
+        },
+        "release": {
+            "paskageType": "apk",
+            ...
+            "v1SigningEnabled": true,
+            "v2SigningEnabled": true
+        }
+    }
+}
+```
+
 ## 2. Usage
 
 To interact with cordova and its plugins you will first need to wait on `deviceready` event to fire. After `deviceready` event fires, you can use the `cmPosIntegration` plugin from the window object. There is a simple example code below that presents the most simple usage of the plugin.
