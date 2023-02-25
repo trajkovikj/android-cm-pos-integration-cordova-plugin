@@ -28,11 +28,7 @@
       <preference name="GradlePluginKotlinVersion" value="1.6.0" />
     </config-file>
 
-    <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
-        <application android:extractNativeLibs="true" />
-    </edit-config>
-
-    <lib-file src="libs/androidposintegration-1.1.2-debug.aar" />
+    <!-- <lib-file src="libs/androidposintegration-1.1.2-debug.aar" /> -->
     
     <!-- <source-file src="libs/androidposintegration-1.1.2-debug.aar" target-dir="libs"/> -->
     

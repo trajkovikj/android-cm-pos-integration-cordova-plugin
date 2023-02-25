@@ -43,6 +43,8 @@ public class AndroidPosIntegrationAdapter {
 
             override fun onResult(data: TransactionResultData) {
                 Log.d("CM__DO_TRANSACTION__ON_RESULT", data.toString())
+                // data.merchantReceipt.receiptLines
+                // data.customerReceipt.receiptLines
                 callbackContext.success(Gson().toJson(data));
 
             }
