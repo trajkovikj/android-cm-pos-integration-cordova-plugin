@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         id="android-cm-pos-integration-cordova-plugin"
-        version="0.1.0">
+        version="2.0.0">
 
   <name>CmPosIntegration</name>
 
@@ -25,24 +25,24 @@
       <preference name="android-minSdkVersion" value="25" />
       <preference name="GradlePluginKotlinEnabled" value="true" />
       <preference name="GradlePluginKotlinCodeStyle" value="official" />
-      <preference name="GradlePluginKotlinVersion" value="1.6.0" />
+      <preference name="GradlePluginKotlinVersion" value="1.9.24" />
     </config-file>
 
     <!-- <lib-file src="libs/androidposintegration-1.1.2-debug.aar" /> -->
-    
+
     <!-- <source-file src="libs/androidposintegration-1.1.2-debug.aar" target-dir="libs"/> -->
-    
+
     <source-file src="src/android/models/DoTransactionMessage.kt" target-dir="java/io/thinker/cmposintegration/models"/>
     <source-file src="src/android/models/FinishPreAuthMessage.kt" target-dir="java/io/thinker/cmposintegration/models"/>
     <source-file src="src/android/models/GetLastReceiptMessage.kt" target-dir="java/io/thinker/cmposintegration/models"/>
     <source-file src="src/android/models/GetTerminalDayTotalsMessage.kt" target-dir="java/io/thinker/cmposintegration/models"/>
     <source-file src="src/android/models/TransactionStatusesMessage.kt" target-dir="java/io/thinker/cmposintegration/models"/>
-    
+
     <source-file src="src/android/AndroidPosIntegrationAdapter.kt" target-dir="java/io/thinker/cmposintegration"/>
     <source-file src="src/android/CmPosIntegrationPluginImpl.kt" target-dir="java/io/thinker/cmposintegration"/>
-   
+
     <framework src="src/android/cmposintegration.gradle" custom="true" type="gradleReference" />
-   
+
   </platform>
 
 </plugin>
